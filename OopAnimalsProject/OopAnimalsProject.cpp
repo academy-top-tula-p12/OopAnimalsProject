@@ -28,7 +28,7 @@ class Dog : public Animal
 {
 public:
     Dog() : Animal("dog") {};
-    string Say() override { return "gau"; }
+    string Say() final override { return "gau"; }
 };
 
 class Pig : public Animal
@@ -36,6 +36,12 @@ class Pig : public Animal
 public:
     Pig() : Animal("pig") {};
     string Say() override { return "hru"; }
+};
+
+class Fox : public Dog
+{
+public:
+    //string Say() override { return "tyaf"; }
 };
 
 
@@ -90,10 +96,13 @@ int main()
     //    SayAnimal(animals[i]);
     //}
 
-    cout << "input code of animal (0, 1, 2): ";
+    /*cout << "input code of animal (0, 1, 2): ";
     int code;
     cin >> code;
 
     Animal* a = AnimalFactory((AnimalType)code);
-    cout << a->Say() << "\n";
+    cout << a->Say() << "\n";*/
+
+    Animal* fox = new Fox();
+    cout << fox->Say() << "\n";
 }
